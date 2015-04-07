@@ -1,6 +1,6 @@
 body {
 	/* background: #fff url('background.jpg'); */
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 14px;
 	color: #653F1A;
 }
@@ -130,20 +130,23 @@ a:hover {
 }
 
 /* Sidebar */
+.bs-docs-sidebar {
+	margin-top: 30px;
+}
 .widget {
 	border-bottom: 1px dashed #C0C0C0;
-	margin-bottom: 20px;
-	padding-bottom: 10px;
+	margin-bottom: 30px;
+	padding-bottom: 20px;
 }
 .widget:last-child {
 	border-bottom: 0;
 }
 .widget h3 {
-  	color: #ff9000;
-	font-weight: 600;
+  	color: #000;
 	letter-spacing: 1px;
 	font-size: 130%;
 	padding-bottom: 10px;
+	font-weight: 400;
 }
 .widget a {
 	color: #653F1A;
@@ -155,6 +158,17 @@ a:hover {
 }
 .widget li {
 	margin: 10px 0;
+}
+.widget .carousel-control .glyphicon-chevron-left, .widget .carousel-control .glyphicon-chevron-right, .widget .carousel-control .icon-next, .widget .carousel-control .icon-prev {
+	font-size: 20px;
+}
+.widget .carousel-caption {
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	right:0;
+	padding: 5px 0;
+	background-color: rgba(0,0,0,0.6);
 }
 /* Blog */
 .entry {
@@ -192,7 +206,147 @@ a:hover {
 .entry > .article {
   padding: 10px 0;
 }
+/* menu */
+.menu-list h4 {
+	padding: 20px 0; 
+}
+.menu-list .panel-heading {
+	font-weight: 700;
+	font-size: 130%;
+}
+/* hbl */
+.home-stn h2 {
+	color: #ff9000;
+	font-weight: 600;
+	text-transform: uppercase;
+	border-bottom: 2px solid #ff9000;
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+}
 
+/* map */
+.gmap {
+	border: 1px solid #999;
+	padding: 5px;
+	min-height:500px;
+}
+.top-map {
+	width: 100%;
+	min-height:800px;
+	position:relative;
+	border-bottom: 1px solid #DDD;
+	overflow: hidden;
+}
+.top-map .mgmap-render {
+	height: 100%;
+}
+.top-map.wpanel .mgmap-render {
+	margin-right: 410px;
+	border-right: 1px solid #DDD;
+}
+.top-map .dir_panel {
+	height: 100%;
+	position: absolute;
+	top:0;
+	right:0;
+	padding-right:10px;
+	padding-top:10px;
+	width: 390px;
+	overflow: auto;
+	display: none;
+}
+.dir_panel::-webkit-scrollbar {
+	height: 16px;
+	overflow: visible;
+	width: 16px;
+}
+.dir_panel::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.2);
+	background-clip: padding-box;
+	border: solid rgba(0, 0, 0, 0);
+	border-width: 1px 1px 1px 6px;
+	min-height: 28px;
+	padding: 100px 0 0;
+	box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1),inset 0 -1px 0 rgba(0, 0, 0, 0.07);
+}
+.dir_panel::-webkit-scrollbar-button {
+height: 0;
+width: 0;
+}
+.dir_panel::-webkit-scrollbar-track {
+background-clip: padding-box;
+border: solid rgba(0, 0, 0, 0);
+border-width: 0 0 0 4px;
+}
+.dir_panel::-webkit-scrollbar-corner {
+background: rgba(0, 0, 0, 0);
+}
+
+.mgmap-input {
+	overflow: hidden;
+	float: left;
+
+}
+.control-group {
+	position: relative;
+	display: table;
+	border-collapse: separate;
+}
+.control-group .group-bt {
+
+	text-align: center;
+	background-color: #EEE;
+	
+	border-radius: 4px;
+	cursor:pointer;
+
+}
+.control-group .group-bt:first-child {
+	border-right: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+.control-group .group-bt:last-child {
+	border-left: 0;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0
+}
+.control-group .group-bt, .mgmap-input input.input-xlarge {
+	float: left;
+	margin:0;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	border: 1px solid #CCC;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+.mgmap-input input.input-xlarge {
+	width: 300px;
+	color: #555;
+	background-color: #FFF;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.mgmap-control {
+	background: #FFF;
+	padding: 10px 5px;
+}
+.mgmap-control .mgmap-gui-drop {
+	display: inline;
+	position: relative;
+	float: left;
+	padding: 6px 12px;
+	line-height: 1.428571429;
+	font-size: 14px;
+}
+.mgmap-gui-drop span.label {
+	font-size: 14px;
+	color:#090;
+	cursor: pointer;
+}
 /* footer */
 .bs-docs-footer {
 	background-color: #462B18;
