@@ -232,7 +232,7 @@ a:hover {
 }
 .top-map {
 	width: 100%;
-	min-height:800px;
+	min-height:500px;
 	position:relative;
 	border-bottom: 1px solid #DDD;
 	overflow: hidden;
@@ -241,7 +241,6 @@ a:hover {
 	height: 100%;
 }
 .top-map.wpanel .mgmap-render {
-	margin-right: 410px;
 	border-right: 1px solid #DDD;
 }
 .top-map .dir_panel {
@@ -334,13 +333,9 @@ background: rgba(0, 0, 0, 0);
 	background: #FFF;
 	padding: 10px 5px;
 }
-.mgmap-control .mgmap-gui-drop {
+.mgmap-control .dir-gui-drop {
 	display: inline;
-	position: relative;
 	float: left;
-	padding: 6px 12px;
-	line-height: 1.428571429;
-	font-size: 14px;
 }
 .mgmap-gui-drop span.label {
 	font-size: 14px;

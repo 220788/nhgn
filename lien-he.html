@@ -112,7 +112,15 @@
 		</div>
 		<div class="page-gt-map" id="bando">
 			<h3>Bản đồ</h3>
-			<div id="google_map" class="top-map"></div>
+			      <button onclick="$('#google_map').fullScreen(true)">Enter Fullscreen mode (Button panel)</button><br />
+			<div class="row" id="bando-re">
+				<div class="col-md-9">
+					<div id="google_map" class="top-map"></div>
+				</div>
+				<div class="col-md-3">
+					<div id="dir_gui"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -145,14 +153,15 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <script src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=places&amp;v=3.7"></script>
+<script src="../assets/js/jquery.fullscreen-min.js"></script>
 <script src="../assets/js/mapmarker.jquery.js"></script>
 <script type="text/javascript">
 	$(function() {
 	    $('#google_map').mgmap({
-			latitude	: '20.2757369',
-			longitude	: '105.9119327',
+			latitude	: '20.2756508',
+			longitude	: '105.9119208',
 			zoom		: 15,
-			markers		: { 'latitude': '20.2757369', 'longitude':'105.9119327', 'icon': '../assets/img/restaurant.png', 'text': '<h2>Nhà hàng Gió Núi</h2>Địa chỉ: Đường Tràng An, Trường Yên, Hoa Lư, Ninh Binh <br/>Tel: 01699.742.972 <br/>Email: nhahanggionuininhbinh@gmail.com', title: 'Nhà hàng Gió Núi' },
+			markers		: { 'latitude': '20.2756508', 'longitude':'105.9119208', 'icon': '../assets/img/restaurant.png', 'text': '<h2>Nhà hàng Gió Núi</h2>Địa chỉ: Đường Tràng An, Trường Yên, Hoa Lư, Ninh Binh <br/>Tel: 01699.742.972 <br/>Email: nhahanggionuininhbinh@gmail.com', title: 'Nhà hàng Gió Núi' },
 			control: {
 				dir: true,
 				guide: [ 
@@ -162,7 +171,8 @@
 					'Chùa Bái Đính@20.281757,105.868817',
 					'Tam Cốc - Bích động@20.215892,105.93794',
 				]
-			}
+			},
+			directions_panel: '#dir_gui'
 		});
 	});
 </script>

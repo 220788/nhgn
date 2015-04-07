@@ -81,12 +81,12 @@
 			
 			autocomplete.bindTo('bounds',_s.$map);
 
-			$('<div/>', {
-				id: _s.dirres,
-				'class': 'dir_panel'
-			}).appendTo(_s.$element);
-			_s.dirRenderer.setPanel(document.getElementById(_s.dirres));
-			
+			if (this.options.directions_panel) {
+                _s.options.directions_panel = $(this.options.directions_panel);
+                _s.dirRenderer.setPanel(this.options.directions_panel.get(0));
+            }
+
+
 			var _event = function(e) {
 				var v = e ? e : $.trim(_in.value);
 				if(	$.type(v) !== 'string' ) return;
@@ -132,38 +132,38 @@
 			var _s = this, _g = _s.control.guide;
 			var _uid = this._rand();
 			var _dgui = $('<div/>', {
-				'class': 'mgmap-gui-drop',
-				html: '<span class="label">'+_s.phrases.gui_label+'</span>'
+				'class': 'btn-group dir-gui-drop',
+				html: '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="dropdownDir">'+_s.phrases.gui_label+' <span class="caret"></span></button>'
 			});
 			var _ui = $('<ul/>', {
 				id: _uid,
-				'class': 'mgmap-gui gui-drop'
-			});
+				'class': 'dropdown-menu',
+			}).attr('aria-labelledby','dropdownDir');
 			_dgui.appendTo('#'+_cid);
 			_ui.appendTo(_dgui);
 			
 			$.each(_g, function() {
 				var _d = this.split('@');
-				$('<li/>', {
+				$('<a/>', {
+					'class': 'dir-gui-local',
+					href: '#',
 					text: _d[0],
 					attr: {'data-latlng':_d[1], 'data-source': this}
 				}).appendTo(_ui);
 			});
-			var _drop = function() {
-				var e = $('#'+_uid);
-				e.toggle();
-			};
-			var _event = function() {
-				_drop();
-				var d = $(this).attr('data-latlng');
+			$('.dir-gui-local').wrapAll('<li></li>');
+
+			
+			$('#'+_cid+' li').click(function(e) {
+				e.preventDefault();
+				var d = $(e.target).attr('data-latlng');
 				if(d) {
-					_s._in.value = $(this).attr('data-source');
+					_s._in.value = $(e.target).attr('data-source');
 					return _s._dirQuery(d);
 				}
-			}
-			
-			$('#'+_cid+' li').click(_event);
-			_dgui.find('span').click(_drop);
+			});
+			//_dgui.find('span').click(_drop);
+			$('#dropdownDir').dropdown();
 		},
 		_position: function(latitude,longitude) {
 			return new google.maps.LatLng(latitude,longitude);
@@ -218,7 +218,7 @@
 			dir_label: 'Tìm đường',
 			dir_label_desc: 'Nhập vị trí xuất phát của bạn',
 			dir_button: 'Tìm',
-			gui_label: 'Gợi ý một số địa điểm'
+			gui_label: 'Gợi ý địa điểm'
 		},
 		markers: {},
 		control: {
