@@ -70,42 +70,39 @@
 				_s._dir(_cid);
 			}
 		},
-		_dir: function(_cid) {
-			var _i = this._rand();
-			var _id = this._rand();
+		_dir: function() {
 			var _s = this, control;
-			$('<div class="mgmap-input"><div class="control-group"><label class="control-label group-bt" for="'+_i+'">'+_s.phrases.dir_label+'</label><input id="'+_i+'" type="text" placeholder="'+_s.phrases.dir_input+'" class="input-xlarge" value=""><span class="group-bt" id="'+_id+'">'+_s.phrases.dir_button+'</span></div>').appendTo('#'+_cid);
-			var _in = document.getElementById(_i);
-			this._in = _in;
-			var autocomplete = new google.maps.places.Autocomplete(_in);
-			
-			autocomplete.bindTo('bounds',_s.$map);
-
+			var input = _s.options.directions_input;			
 			if (this.options.directions_panel) {
                 _s.options.directions_panel = $(this.options.directions_panel);
                 _s.dirRenderer.setPanel(this.options.directions_panel.get(0));
             }
+            if(input) {
+            	input = $(input);
+            	var _event = function(e) {
+					var v = e ? e : $.trim(_in.value);
+					if(	$.type(v) !== 'string' ) return;
+					if( v.indexOf('@') != -1 ) v = v.split('@')[1];
+					return _s._dirQuery(v);
+				};
+            	var autocomplete = new google.maps.places.Autocomplete(input.get(0));
+				autocomplete.bindTo('bounds',_s.$map);
+				google.maps.event.addListener(autocomplete, 'place_changed', function() {
+					 var place = autocomplete.getPlace();
+					_event(place.formatted_address);
+				});
 
+				
+				input.keypress(function(e) {
+					if(e.which == 13) {
+						_event();
+					}
+				});
+				
 
-			var _event = function(e) {
-				var v = e ? e : $.trim(_in.value);
-				if(	$.type(v) !== 'string' ) return;
-				if( v.indexOf('@') != -1 ) v = v.split('@')[1];
-				return _s._dirQuery(v);
-			};
-			
-			$('#'+_id).click(_event);
-			$('#'+_i).keypress(function(e) {
-				if(e.which == 13) {
-					_event();
-				}
-			});
-			google.maps.event.addListener(autocomplete, 'place_changed', function() {
-				 var place = autocomplete.getPlace();
-				_event(place.formatted_address);
-			});
+            }
 			if(_s.control.guide) {
-				_s._dirGui(_cid);
+				_s._dirGui();
 			}
 		},
 		_dirQuery: function(origin) {
@@ -129,17 +126,18 @@
 			});
 		},
 		_dirGui : function(_cid) {
-			var _s = this, _g = _s.control.guide;
+			var _s = this, _g = _s.control.guide, dg = _s.options.directions_guid;
+			if(!dg) return;
 			var _uid = this._rand();
 			var _dgui = $('<div/>', {
 				'class': 'btn-group dir-gui-drop',
-				html: '<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="dropdownDir">'+_s.phrases.gui_label+' <span class="caret"></span></button>'
+				html: '<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="dropdownDir">'+_s.phrases.gui_label+' <span class="caret"></span></button>'
 			});
 			var _ui = $('<ul/>', {
 				id: _uid,
 				'class': 'dropdown-menu',
 			}).attr('aria-labelledby','dropdownDir');
-			_dgui.appendTo('#'+_cid);
+			_dgui.appendTo(dg);
 			_ui.appendTo(_dgui);
 			
 			$.each(_g, function() {
@@ -154,11 +152,12 @@
 			$('.dir-gui-local').wrapAll('<li></li>');
 
 			
-			$('#'+_cid+' li').click(function(e) {
+			$(dg+' li').click(function(e) {
 				e.preventDefault();
 				var d = $(e.target).attr('data-latlng');
 				if(d) {
-					_s._in.value = $(e.target).attr('data-source');
+					var source = $(e.target).attr('data-source');
+					$(_s.options.directions_input).val(source.split('@')[0]);
 					return _s._dirQuery(d);
 				}
 			});

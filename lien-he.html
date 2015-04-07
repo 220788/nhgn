@@ -90,7 +90,7 @@
   		<div id="bs-docs-header">
 	<div class="bs-docs-wc bs-doc-wc-cat">
 		<div class="container">
-			<h1>Liên hệ</h1>
+			<h1>Thông tin liên hệ</h1>
 			<ol class="breadcrumb">
 			  <li><a href="../"><i class="fa fa-home"></i> Trang chủ</a></li>
 			  <li class="active">Liên hệ</li>
@@ -99,9 +99,8 @@
 	</div>
 </div>
     	<div class="container">
-	<div class="row">
 		<div class="page-gt-ct">
-			<h3>Thông tin liên hệ</h3>
+			<h3>Nhà hàng Gió Núi</h3>
 			<address>
         		<ul class="contact">
 				    <li>Email: <a href="mailto:nhahanggionuininhbinh@gmail.com">nhahanggionuininhbinh@gmail.com</a></li>
@@ -112,17 +111,21 @@
 		</div>
 		<div class="page-gt-map" id="bando">
 			<h3>Bản đồ</h3>
-			      <button onclick="$('#google_map').fullScreen(true)">Enter Fullscreen mode (Button panel)</button><br />
 			<div class="row" id="bando-re">
 				<div class="col-md-9">
+					<div class="input-group">
+					  <span class="input-group-addon" id="basic-addon1">Chỉ đường</span>
+					  <input type="text" class="form-control" id="dir_input" placeholder="Vui lòng nhập diểm xuất phát" aria-describedby="basic-addon1">
+					  <div class="input-group-btn" id="dir_guid">
+					  </div>
+					</div>
 					<div id="google_map" class="top-map"></div>
 				</div>
 				<div class="col-md-3">
-					<div id="dir_gui"></div>
+					<div id="dir_panel" class="dir_panel"></div>
 				</div>
 			</div>
 		</div>
-	</div>
 </div>
   </main>
   <footer class="bs-docs-footer" role="contentinfo">
@@ -161,7 +164,7 @@
 			latitude	: '20.2756508',
 			longitude	: '105.9119208',
 			zoom		: 15,
-			markers		: { 'latitude': '20.2756508', 'longitude':'105.9119208', 'icon': '../assets/img/restaurant.png', 'text': '<h2>Nhà hàng Gió Núi</h2>Địa chỉ: Đường Tràng An, Trường Yên, Hoa Lư, Ninh Binh <br/>Tel: 01699.742.972 <br/>Email: nhahanggionuininhbinh@gmail.com', title: 'Nhà hàng Gió Núi' },
+			markers		: { 'latitude': '20.2756508', 'longitude':'105.9119208', 'icon': '../assets/img/restaurant.png', 'text': '<h4>Nhà hàng Gió Núi</h4>Địa chỉ: Đường Tràng An, Trường Yên, Hoa Lư, Ninh Binh <br/>Điện thoại: 0303.621.712 <br/>Email: nhahanggionuininhbinh@gmail.com', title: 'Nhà hàng Gió Núi' },
 			control: {
 				dir: true,
 				guide: [ 
@@ -172,7 +175,9 @@
 					'Tam Cốc - Bích động@20.215892,105.93794',
 				]
 			},
-			directions_panel: '#dir_gui'
+			directions_input: '#dir_input',
+			directions_guid: '#dir_guid',
+			directions_panel: '#dir_panel'
 		});
 	});
 </script>

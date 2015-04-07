@@ -225,39 +225,32 @@ a:hover {
 }
 
 /* map */
-.gmap {
-	border: 1px solid #999;
-	padding: 5px;
-	min-height:500px;
+.page-gt-map .input-group-addon, .page-gt-map .input-group-btn, .page-gt-map .dropdown-toggle {
+	border-radius: 0;
+
 }
 .top-map {
 	width: 100%;
-	min-height:500px;
+	height:500px;
 	position:relative;
-	border-bottom: 1px solid #DDD;
+	border: 1px solid #ccc;
+	border-top:0;
 	overflow: hidden;
 }
 .top-map .mgmap-render {
 	height: 100%;
 }
-.top-map.wpanel .mgmap-render {
-	border-right: 1px solid #DDD;
-}
-.top-map .dir_panel {
-	height: 100%;
-	position: absolute;
-	top:0;
-	right:0;
+.dir_panel {
+	height:500px;
 	padding-right:10px;
 	padding-top:10px;
-	width: 390px;
+	width: 100%;
 	overflow: auto;
-	display: none;
 }
 .dir_panel::-webkit-scrollbar {
-	height: 16px;
-	overflow: visible;
-	width: 16px;
+height: 16px;
+overflow: visible;
+width: 16px;
 }
 .dir_panel::-webkit-scrollbar-thumb {
 	background-color: rgba(0, 0, 0, 0.2);
@@ -279,68 +272,6 @@ border-width: 0 0 0 4px;
 }
 .dir_panel::-webkit-scrollbar-corner {
 background: rgba(0, 0, 0, 0);
-}
-
-.mgmap-input {
-	overflow: hidden;
-	float: left;
-
-}
-.control-group {
-	position: relative;
-	display: table;
-	border-collapse: separate;
-}
-.control-group .group-bt {
-
-	text-align: center;
-	background-color: #EEE;
-	
-	border-radius: 4px;
-	cursor:pointer;
-
-}
-.control-group .group-bt:first-child {
-	border-right: 0;
-	border-top-right-radius: 0;
-	border-bottom-right-radius: 0;
-}
-.control-group .group-bt:last-child {
-	border-left: 0;
-	border-bottom-left-radius: 0;
-	border-top-left-radius: 0
-}
-.control-group .group-bt, .mgmap-input input.input-xlarge {
-	float: left;
-	margin:0;
-	padding: 6px 12px;
-	font-size: 14px;
-	line-height: 1.428571429;
-	border: 1px solid #CCC;
-	white-space: nowrap;
-	vertical-align: middle;
-}
-.mgmap-input input.input-xlarge {
-	width: 300px;
-	color: #555;
-	background-color: #FFF;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-}
-.mgmap-control {
-	background: #FFF;
-	padding: 10px 5px;
-}
-.mgmap-control .dir-gui-drop {
-	display: inline;
-	float: left;
-}
-.mgmap-gui-drop span.label {
-	font-size: 14px;
-	color:#090;
-	cursor: pointer;
 }
 /* footer */
 .bs-docs-footer {
