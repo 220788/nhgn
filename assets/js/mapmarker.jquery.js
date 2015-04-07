@@ -237,5 +237,5 @@
         $.fn.mgmap = old
         return this
     }
-	
+	 
 }(window.jQuery);
