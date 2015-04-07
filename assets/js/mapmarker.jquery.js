@@ -175,8 +175,9 @@
 		},
 		_ajheight: function() {
 			var _wh = $(window).height();
-			var _oe = this.$element, _he = _oe.offset().top;
-			_oe.height( _wh - _he );
+			var _oe = this.$element, _he = _oe.offset().top, h = _wh - _he/2
+			_oe.height( h );
+			$(this.options.dir_panel).css('max-height',h);
 			google.maps.event.addDomListener(window, 'resize', $.proxy(this._ajheight,this))
 		},
 		_ajposition: function(e) {
