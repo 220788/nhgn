@@ -48,11 +48,13 @@
 				content: _s.markers.text
 			});
 			var info_event = function() {
-				if(_state && !$.browser.mobile) return _state = false, infowindow.close();
+				if(_state) return _state = false, infowindow.close();
 				return _state = true, infowindow.open(_s.$map, marker);
 			};
 			google.maps.event.addListener(marker, 'click', info_event);
-			info_event();
+			if(!$.browser.mobile) {
+				info_event();
+			}
 			this.infowindow = infowindow;
 		},
 		

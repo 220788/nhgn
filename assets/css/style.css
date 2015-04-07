@@ -168,7 +168,7 @@ a:hover {
 	left: 0;
 	right:0;
 	padding: 5px 0;
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(70, 43, 24,0.6);
 }
 /* Blog */
 .entry {
@@ -215,15 +215,47 @@ a:hover {
 	font-size: 130%;
 }
 /* hbl */
-.home-stn h2 {
-	color: #ff9000;
-	font-weight: 600;
-	text-transform: uppercase;
-	border-bottom: 2px solid #ff9000;
-	margin-bottom: 15px;
-	padding-bottom: 10px;
+.home-stn {
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
-
+.headline {
+  display: block;
+  margin: 10px 0 25px 0;
+  border-bottom: 1px dotted #e4e9f0;
+}
+.headline h2, .headline h3, .headline h4 {
+	color: #462B18;
+	  margin: 0 0 -2px 0;
+	  padding-bottom: 5px;
+	  display: inline-block;
+	  border-bottom: 2px solid #462B18;
+}
+.headline h2 {
+  font-size: 22px;
+}
+.headline h3 {
+  font-size: 18px;
+}
+.home-abm img {
+	margin-bottom: 20px;
+}
+.home-menu .thumbnail {
+	position: relative;
+	padding: 0;
+	background-color: transparent;
+	border: 0;
+	border-radius: 0;
+}
+.home-menu .menu-title {
+	padding: 3px 0;
+	text-align: center;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: rgba(70, 43, 24,0.7);
+}
 /* map */
 .page-gt-map .input-group-addon, .page-gt-map .input-group-btn, .page-gt-map .dropdown-toggle {
 	border-radius: 0;
