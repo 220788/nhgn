@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'UVNBenXuan';
+  src: url('font/UVNBenXuan.eot?#iefix') format('embedded-opentype'),  url('font/UVNBenXuan.woff') format('woff'), url('font/UVNBenXuan.ttf')  format('truetype'), url('font/UVNBenXuan.svg#UVNBenXuan') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
 	/* background: #fff url('background.jpg'); */
 	font-family: 'Open Sans', sans-serif;
@@ -46,7 +52,7 @@ a:hover {
 	background-color: transparent;
 }
 .navbar-nav>li>a {
-	font-weight: 600;
+	font-weight: 400;
 	text-transform: uppercase;
 }
 .navbar-nav>li>a>i, .topbar .fa {
@@ -77,6 +83,9 @@ a:hover {
 .bs-docs-wc-home {
 	background:transparent url('../img/gn4.jpg') no-repeat;
 	text-align: center;
+}
+.bs-docs-wc-home h1 {
+	font-family: 'UVNBenXuan', arial,sans-serif;
 }
 .bs-doc-wc-cat {
 	background:transparent url('../img/gn4.jpg') no-repeat;
@@ -226,13 +235,14 @@ a:hover {
 }
 .headline h2, .headline h3, .headline h4 {
 	color: #462B18;
-	  margin: 0 0 -2px 0;
-	  padding-bottom: 5px;
-	  display: inline-block;
-	  border-bottom: 2px solid #462B18;
+	margin: 0 0 -2px 0;
+	padding-bottom: 5px;
+	display: inline-block;
+	border-bottom: 2px solid #462B18;
+	font-family: 'UVNBenXuan', arial,sans-serif;
 }
 .headline h2 {
-  font-size: 22px;
+  font-size: 36px;
 }
 .headline h3 {
   font-size: 18px;
@@ -350,6 +360,7 @@ ul.contact > li {
 		display: block;
 		max-width: 60%;
 	}
+
 
 }
 @media (min-width: 768px) {
