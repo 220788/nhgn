@@ -223,6 +223,9 @@ a:hover {
 	font-weight: 700;
 	font-size: 130%;
 }
+.menu-list .nav-tabs {
+  margin-bottom: 15px;
+}
 /* hbl */
 .home-stn {
 	margin-top: 30px;
@@ -234,11 +237,11 @@ a:hover {
   border-bottom: 1px dotted #e4e9f0;
 }
 .headline h2, .headline h3, .headline h4 {
-	color: #462B18;
+	color: #C08231;
 	margin: 0 0 -2px 0;
 	padding-bottom: 5px;
 	display: inline-block;
-	border-bottom: 2px solid #462B18;
+	border-bottom: 2px solid #C08231;
 	font-family: 'UVNBenXuan', arial,sans-serif;
 }
 .headline h2 {
